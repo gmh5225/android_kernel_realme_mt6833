@@ -66,10 +66,10 @@ make -j$(nproc --all) O=out \
 
 function checkbuild()
 {
-if [ -f "out/arch/arm64/boot/Image.gz-dtb" ]; then
+if [ -f "out/arch/arm64/boot/Image.gz" ]; then
 	echo -e "\nKernel compiled succesfully! Zipping up...\n"
 	rsync -a $TC_DIR/AnyKernel3/ ./anykernel --exclude ".git" --exclude ".github" --exclude "LICENSE" --exclude "README.md" --exclude "ramdisk" --exclude "modules" --exclude "patch"
-	cp out/arch/arm64/boot/Image.gz-dtb anykernel/Image.gz
+	cp out/arch/arm64/boot/Image.gz anykernel/Image.gz
 	cd anykernel
 	zip -r9 "../$ZIPNAME" *
 	cd ..
