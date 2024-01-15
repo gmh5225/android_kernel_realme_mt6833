@@ -52,13 +52,16 @@ make -j$(nproc --all) O=out \
                         CROSS_COMPILE="$GC_DIR/64/bin/aarch64-linux-android-" \
                         CROSS_COMPILE_ARM32="$GC_DIR/32/bin/arm-linux-androideabi-" \
                         LLVM=1 \
+			LLVM_IAS=1 \
+   
                         LD=ld.lld \
                         AR=llvm-ar \
                         NM=llvm-nm \
                         OBJCOPY=llvm-objcopy \
                         OBJDUMP=llvm-objdump \
                         STRIP=llvm-strip \
-                        CONFIG_NO_ERROR_ON_MISMATCH=y
+                        CONFIG_NO_ERROR_ON_MISMATCH=y \
+			CONFIG_DEBUG_SECTION_MISMATCH=y 2>&1 | tee error.log 
 }
 
 function checkbuild()
