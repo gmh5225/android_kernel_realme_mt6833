@@ -122,6 +122,7 @@ static inline void apply_alternatives_module(void *start, size_t length) { }
 664:	.org	. - (664b-663b) + (662b-661b)
 	.org	. - (662b-661b) + (664b-663b)
 	.popsection
+	.previous
 	.endif
 .endm
 
@@ -194,7 +195,11 @@ static inline void apply_alternatives_module(void *start, size_t length) { }
 	.org	. - (664b-663b) + (662b-661b)
 	.org	. - (662b-661b) + (664b-663b)
 	.if .Lasm_alt_mode==0
+<<<<<<< HEAD
 	.popsection
+=======
+	.previous
+>>>>>>> v4.19.200
 	.endif
 .endm
 

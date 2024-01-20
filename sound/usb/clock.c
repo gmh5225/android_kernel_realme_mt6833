@@ -302,6 +302,7 @@ static int __uac_clock_find_source(struct snd_usb_audio *chip,
 			 */
 			if (chip->usb_id == USB_ID(0x04e8, 0xa051))
 				return ret;
+
 			err = uac_clock_selector_set_val(chip, entity_id, cur);
 			if (err < 0)
 				return err;

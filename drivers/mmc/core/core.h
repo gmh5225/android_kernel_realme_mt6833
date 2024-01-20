@@ -40,6 +40,7 @@ struct mmc_bus_ops {
 	int (*sysfs_add)(struct mmc_host *, struct mmc_card *card);
 	void (*sysfs_remove)(struct mmc_host *, struct mmc_card *card);
 #endif
+
 };
 
 void mmc_attach_bus(struct mmc_host *host, const struct mmc_bus_ops *ops);
